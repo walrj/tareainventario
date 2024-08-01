@@ -7,12 +7,12 @@
     <?php
         require_once "./php/main.php";
 
-        if(isset($_POST['modulo_buscador'])){
-            require_once "./php/buscador.php";
-        }
+    if(isset($_POST['modulo_buscador'])) {
+        require_once "./php/buscador.php";
+    }
 
-        if(!isset($_SESSION['busqueda_usuario']) && empty($_SESSION['busqueda_usuario'])){
-    ?>
+    if(!isset($_SESSION['busqueda_usuario']) && empty($_SESSION['busqueda_usuario'])) {
+        ?>
     <div class="columns">
         <div class="column">
             <form action="" method="POST" autocomplete="off" >
@@ -28,7 +28,7 @@
             </form>
         </div>
     </div>
-    <?php }else{ ?>
+    <?php } else { ?>
     <div class="columns">
         <div class="column">
             <form class="has-text-centered mt-6 mb-6" action="" method="POST" autocomplete="off" >
@@ -41,27 +41,27 @@
         </div>
     </div>
     <?php
-            # Eliminar usuario #
-            if(isset($_GET['user_id_del'])){
-                require_once "./php/usuario_eliminar.php";
-            }
-
-            if(!isset($_GET['page'])){
-                $pagina=1;
-            }else{
-                $pagina=(int) $_GET['page'];
-                if($pagina<=1){
-                    $pagina=1;
+                # Eliminar usuario #
+                if(isset($_GET['user_id_del'])) {
+                    require_once "./php/usuario_eliminar.php";
                 }
+
+        if(!isset($_GET['page'])) {
+            $pagina = 1;
+        } else {
+            $pagina = (int) $_GET['page'];
+            if($pagina <= 1) {
+                $pagina = 1;
             }
+        }
 
-            $pagina=limpiar_cadena($pagina);
-            $url="index.php?vista=user_search&page="; /* <== */
-            $registros=15;
-            $busqueda=$_SESSION['busqueda_usuario']; /* <== */
+        $pagina = limpiar_cadena($pagina);
+        $url = "index.php?vista=user_search&page="; /* <== */
+        $registros = 15;
+        $busqueda = $_SESSION['busqueda_usuario']; /* <== */
 
-            # Paginador usuario #
-            require_once "./php/usuario_lista.php";
-        } 
+        # Paginador usuario #
+        require_once "./php/usuario_lista.php";
+    }
     ?>
 </div>
