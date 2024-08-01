@@ -5,7 +5,7 @@
 
 <div class="container pb-6 pt-6">
 	<?php
-		require_once "./php/main.php";
+        require_once "./php/main.php";
 	?>
 
 	<div class="form-rest mb-6 mt-6"></div>
@@ -44,16 +44,16 @@
 				  	<select name="producto_categoria" >
 				    	<option value="" selected="" >Seleccione una opción</option>
 				    	<?php
-    						$categorias=conexion();
-    						$categorias=$categorias->query("SELECT * FROM categoria");
-    						if($categorias->rowCount()>0){
-    							$categorias=$categorias->fetchAll();
-    							foreach($categorias as $row){
-    								echo '<option value="'.$row['categoria_id'].'" >'.$row['categoria_nombre'].'</option>';
-				    			}
-				   			}
-				   			$categorias=null;
-				    	?>
+	                        $categorias = conexion();
+	$categorias = $categorias->query("SELECT * FROM categoria");
+	if($categorias->rowCount() > 0) {
+	    $categorias = $categorias->fetchAll();
+	    foreach($categorias as $row) {
+	        echo '<option value="'.$row['categoria_id'].'" >'.$row['categoria_nombre'].'</option>';
+	    }
+	}
+	$categorias = null;
+	?>
 				  	</select>
 				</div>
 		  	</div>
